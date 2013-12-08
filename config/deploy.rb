@@ -5,11 +5,13 @@ set :deploy_via, :copy
 set :user, :deploy
 require '/Users/benrudolph/Dropbox/credientials/capcreds.rb'
 set :deploy_to, "/var/www/#{application}"
+set :use_sudo, false
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 role :blog, "176.58.105.165"
+default_run_options[:pty] = true
 
 set :ssh_options, { :forward_agent => true }
 
